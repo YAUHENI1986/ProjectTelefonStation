@@ -6,19 +6,26 @@
 	</head>
 
 	<body>
-		<h3>Welcome</h3>
 		
-		<h3>List of tariffs for today</h3>
-				
-		<ul>
-			<li><a href="TelefoneStationSevlet?action=list_subscribers">list subscribers</a></li>
-			<li><a href="add_subscriber.jsp">add subscriber</a></li>
-		</ul><ul>
-			<li><a href="TelefoneStationSevlet?action=list_phone_services">view all phone services</a></li>
-			<li><a href="add_service.jsp">add service</a></li>
-			<li><a href="edit_service.jsp">edit service</a></li>
-		</ul>
-		
-		<a href="controller?command=logout">Logout</a>
+		<h1>List of tariffs for today</h1>
+		<table border="1">
+		<tr>
+			<td><h3>Type</h3></td>
+			<td><h3>Description</h3></td>
+			<td><h3>Cost Per Month</h3></td>
+		</tr>
+			
+		<c:forEach items="${phoneServices}" var="phoneServices">
+			<tr>
+				<td>${phoneServices.getType()}</td>
+				<td>${phoneServices.getDescriprion()}</td>
+				<td>${phoneServices.getCostPerMonth()}</td>
+			</tr>			
+		</c:forEach>			
+	</table>
+	<br/>
+	<a href="controller?command=jsp_plug_service">To plug service</a>
+	<br/>
+	<a href="controller?command=logout">Exit to main menu</a>
 	</body>
 </html>

@@ -5,6 +5,7 @@
 	</head>
 
 	<body>
+		<input type="text" name="login" value="${user}" readonly="readonly"/>
 		<h3>Welcome</h3>
 		<hr/>
 		${user}, hello!

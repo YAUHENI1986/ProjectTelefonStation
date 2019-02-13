@@ -1,5 +1,6 @@
 package by.htp.telephonestation.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.htp.telephonestation.dao.InvoiceDao;
@@ -47,6 +48,23 @@ public class CatalogServiceImpl implements CatalogServiceSubscribers, CatalogSer
 	public List<PhoneService> viewAllPhoneServices() {
 		return phoneServiceDao.readAll();
 	}
+	
+	@Override
+	public List<PhoneService> viewActivePhoneServices() {
+		List<PhoneService> allServices = phoneServiceDao.readAll();
+		List<PhoneService> activeServices = new ArrayList<>();
+		for(PhoneService e: allServices) {
+			if(e.getStatus().equals("active")) {
+				activeServices.add(e);
+			}
+		}
+		int i = 1;
+		for(PhoneService e: activeServices) {
+			e.setId(i);
+			i++;
+		}
+		return activeServices;
+	}
 
 	@Override
 	public void editPhoneServiceById(int id, String status, String type, String description, double costPerMonth) {
@@ -85,7 +103,6 @@ public class CatalogServiceImpl implements CatalogServiceSubscribers, CatalogSer
 		int randomPhoneNumber;
 		do {
 			randomPhoneNumber = 1000000 + (int)(Math.random()*9000000);
-//			System.out.println(randomPhoneNumber);
 			for(Invoice invoice: invoices) {
 				if(invoice.getPhoneNumber() == randomPhoneNumber) {
 					randomPhoneNumber = 0;
@@ -95,7 +112,21 @@ public class CatalogServiceImpl implements CatalogServiceSubscribers, CatalogSer
 		return randomPhoneNumber;
 	}
 
+	@Override
+	public void addPlug(int plug, int phone_number) {
+		invoiceDao.addPlug(plug, phone_number);		
+	}
 
+	@Override
+	public String getConnectedServices(int phone_number) {
+		List<Invoice> invoices = invoiceDao.readAll();
+		for(Invoice e: invoices) {
+			if(e.getPhoneNumber() == phone_number) {
+				return e.getConnectedServices();
+			}
+		}
+		return "";
+	}
 
 	
 

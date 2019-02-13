@@ -18,5 +18,9 @@ public class CommandConstant {
 	public static final String REQ_PARAM_INVOICE_INVOICE= "invoice";
 	public static final String REQ_PARAM_INVOICE_CONNECTED_SERVICES= "connected_services";
 	public static final String REQ_PARAM_INVOICE_PHONE_NUMBER= "phone_number";
-	public static final String REQ_PARAM_INVOICE_STATUS= "status";
+	public static final String REQ_PARAM_INVOICE_STATUS= "status";	
+	public static final String REQ_PARAM_INVOICE_ID_PLUG= "id_plug";
+	public static final String REQ_PARAM_INVOICE_DEFAULT_CONNECTED_SERVICES= "no service";
+	public static final String REQ_PARAM_INVOICE_DEFAULT_TYPE_TARIFF= "tariff";
+	public static final String REQ_PARAM_INVOICE_DEFAULT_TYPE_SERVICE= "service";
 }

@@ -1,13 +1,17 @@
 package by.htp.telephonestation.command.client;
 
 import by.htp.telephonestation.command.ActionCommand;
+import by.htp.telephonestation.command.AddPlugCommandImpl;
 import by.htp.telephonestation.command.AddServiceCommandImpl;
 import by.htp.telephonestation.command.AddSubcriberCommandImpl;
 import by.htp.telephonestation.command.AdminEntryCommandImpl;
 import by.htp.telephonestation.command.EditServiceCommandImpl;
 import by.htp.telephonestation.command.JspAddServiceCommandImpl;
 import by.htp.telephonestation.command.JspAddSubcribersCommandImpl;
+import by.htp.telephonestation.command.JspBalanceAndServicesCommandImpl;
 import by.htp.telephonestation.command.JspEditServiceCommandImpl;
+import by.htp.telephonestation.command.JspPlugServiceCommandImpl;
+import by.htp.telephonestation.command.JspTopUpBalanceCommandImpl;
 import by.htp.telephonestation.command.ListInvoicesCommandImpl;
 import by.htp.telephonestation.command.ListPhoneServicesCommandImpl;
 import by.htp.telephonestation.command.ListSubcribersCommandImpl;
@@ -62,6 +66,11 @@ public enum CommandEnum {
 			this.command = new AddServiceCommandImpl();
 		}
 	},
+	ADD_PLUG {
+		{
+			this.command = new AddPlugCommandImpl();
+		}
+	},
 	EDIT_SERVICE {
 		{
 			this.command = new EditServiceCommandImpl();
@@ -80,6 +89,21 @@ public enum CommandEnum {
 	JSP_EDIT_SERVICE {
 		{
 			this.command = new JspEditServiceCommandImpl();
+		}
+	},
+	JSP_PLUG_SERVICE {
+		{
+			this.command = new JspPlugServiceCommandImpl();
+		}
+	},
+	JSP_BALANCE_AND_SERVICES {
+		{
+			this.command = new JspBalanceAndServicesCommandImpl();
+		}
+	},
+	JSP_TOP_UP_BALANCE {
+		{
+			this.command = new JspTopUpBalanceCommandImpl();
 		}
 	},
 	MAIN_ADMIN {

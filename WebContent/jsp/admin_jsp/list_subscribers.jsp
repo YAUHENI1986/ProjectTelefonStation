@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<input type="text" name="login" value="${user}" disabled="disabled"/>
 	<h1>View All Subscribers:</h1>
 	<table border="1">
 		<tr>

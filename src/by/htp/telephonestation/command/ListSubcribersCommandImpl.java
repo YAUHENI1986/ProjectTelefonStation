@@ -17,6 +17,9 @@ public class ListSubcribersCommandImpl implements ActionCommand{
 		String page = null;
 		List<Subscriber> subscribers = catalogService.getCatalogSubscribers();
 		
+		String login = request.getParameter("login");
+		System.out.println(login);
+		request.setAttribute("user", login);
 		request.setAttribute("subscribers", subscribers);
 		page = ConfigurationManager.getProperty("path.page.list&subscribers");
 		return page;

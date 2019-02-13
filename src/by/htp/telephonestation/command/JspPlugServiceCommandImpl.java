@@ -9,19 +9,17 @@ import by.htp.telephonestation.resource.ConfigurationManager;
 import by.htp.telephonestation.service.CatalogServicesPhoneServices;
 import by.htp.telephonestation.service.impl.CatalogServiceImpl;
 
-public class ListPhoneServicesCommandImpl implements ActionCommand{
+public class JspPlugServiceCommandImpl implements ActionCommand{
 	
-	private CatalogServicesPhoneServices catalogService = new CatalogServiceImpl();
+	private CatalogServicesPhoneServices catalogServices = new CatalogServiceImpl();
 
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = null;
-		List<PhoneService> phoneServices = catalogService.viewAllPhoneServices();
+		List<PhoneService> phoneServices = catalogServices.viewActivePhoneServices();
 		
-		System.out.println(request.getParameter("login"));
-		request.setAttribute("user", request.getParameter("login"));
 		request.setAttribute("phoneServices", phoneServices);
-		page = ConfigurationManager.getProperty("path.page.list&phone&services");
+		page = ConfigurationManager.getProperty("path.page.plug&service");
 		return page;
 	}
 

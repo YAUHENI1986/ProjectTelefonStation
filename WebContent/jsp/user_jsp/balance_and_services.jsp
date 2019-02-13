@@ -14,7 +14,7 @@
 
 <form name="addServ" action="controller" method="POST">
 
-	<input type="hidden" name="command" value="add_service"/>
+	<input type="hidden" name="command" value="get_balance_services"/>
 
 	<select name="type_list">
 		<option>choose of type</option>
@@ -33,7 +33,7 @@
 			${errorDataMessage}
 	<br/>
 		
-	<input type="submit" value="add service"/>
+	<input type="submit" value="get balance/services"/>
 </form>
 
 <br/><br/>		

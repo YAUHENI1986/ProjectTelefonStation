@@ -8,5 +8,6 @@ public interface InvoiceDao {
 	
 	List<Invoice> readAll();
 	void addInvoice(Invoice invoice);
+	void addPlug(int plug, int phone_number);
 
 }

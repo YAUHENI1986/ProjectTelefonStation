@@ -10,5 +10,6 @@ public interface CatalogServiceInvoice {
 	void addInvoice(int subscriber, int invoice, String connected_services, int phone_number, String status);
 	int getIdSubscriber(int personal_number_passport);
 	int generatePhoneNumber();
-	
+	void addPlug(int plug, int phone_number);
+	String getConnectedServices(int phone_number);
 }
